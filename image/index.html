@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پورتفولیو | توسعه‌دهنده بک‌اند</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2bd69c;
+            --secondary-color: #0f344c;
+            --accent-color: #ff6b6b;
+            --text-color: #333;
+            --light-text: #777;
+            --background: #fff;
+            --dark-bg: #0a2536;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Vazirmatn', sans-serif;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* دکمه‌ها */
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(43, 214, 156, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(43, 214, 156, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* هدر و نویگیشن */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            transition: var(--transition);
+        }
+
+        header.sticky {
+            padding: 10px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .nav-menu {
+            display: flex;
+        }
+
+        .nav-item {
+            margin-left: 30px;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: var(--text-color);
+            transition: var(--transition);
+        }
+
+        /* بخش هیرو */
+        .hero {
+            padding: 150px 0 100px;
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--dark-bg) 100%);
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .hero-text {
+            flex: 1;
+            padding-left: 50px;
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .social-links {
+            display: flex;
+            margin-top: 30px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 15px;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px);
+            background: var(--primary-color);
+        }
+
+        /* بخش‌های دیگر */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        /* درباره من */
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .about-text {
+            flex: 1;
+            padding-left: 50px;
+        }
+
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* مهارت‌ها */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-item {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            text-align: center;
+            border-bottom: 4px solid var(--primary-color);
+        }
+
+        .skill-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .skill-bar {
+            height: 10px;
+            background: #f0f0f0;
+            border-radius: 10px;
+            margin-top: 15px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: var(--primary-color);
+            border-radius: 10px;
+            position: relative;
+            width: 0;
+            transition: width 1.5s ease;
+        }
+
+        /* نمونه کارها */
+        .portfolio-filter {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .filter-btn {
+            background: none;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--light-text);
+            transition: var(--transition);
+        }
+
+        .filter-btn.active {
+            color: var(--primary-color);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .portfolio-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(43, 214, 156, 0.9);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-item:hover .portfolio-img {
+            transform: scale(1.1);
+        }
+
+        /* تجربه کاری */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--primary-color);
+            top: 0;
+            bottom: 0;
+            right: 50%;
+            margin-right: -3px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--primary-color);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .left {
+            right: 0;
+        }
+
+        .right {
+            right: 50%;
+        }
+
+        .left::after {
+            left: -10px;
+        }
+
+        .right::after {
+            right: -10px;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* تماس با من */
+        .contact-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-form {
+            flex: 1;
+            padding-right: 50px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            margin-left: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(43, 214, 156, 0.2);
+            outline: none;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* فوتر */
+        footer {
+            background: var(--dark-bg);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .footer-social {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 10px;
+            transition: var(--transition);
+        }
+
+        .footer-social a:hover {
+            background: var(--primary-color);
+        }
+
+        .footer-links h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-links h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--primary-color);
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links ul li a {
+            transition: var(--transition);
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--primary-color);
+            padding-right: 5px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* واکنش‌گرایی */
+        @media (max-width: 992px) {
+            .hero-content, .about-content, .contact-container {
+                flex-direction: column;
+            }
+            
+            .hero-text, .about-text, .contact-form {
+                padding: 0;
+                margin-bottom: 40px;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .timeline::after {
+                right: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-right: 70px;
+                padding-left: 25px;
+            }
+            
+            .right, .left {
+                right: 0;
+            }
+            
+            .left::after, .right::after {
+                left: 15px;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                right: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: white;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                padding: 20px 0;
+            }
+            
+            .nav-menu.active {
+                right: 0;
+            }
+            
+            .nav-item {
+                margin: 15px 0;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+        }
+
+        /* انیمیشن‌ها */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+    </style>
+</head>
+<body>
+    <!-- هدر -->
+    <header id="header">
+        <div class="container nav-container">
+            <a href="#" class="logo">BackendDev</a>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="#home" class="nav-link">خانه</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link">درباره من</a></li>
+                    <li class="nav-item"><a href="#skills" class="nav-link">مهارت‌ها</a></li>
+                    <li class="nav-item"><a href="#experience" class="nav-link">تجربیات</a></li>
+                    <li class="nav-item"><a href="#portfolio" class="nav-link">پروژه‌ها</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">تماس با من</a></li>
+                </ul>
+                
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- بخش هیرو -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <div class="hero-text fade-in">
+                <h1 class="hero-title">سلام، من <span style="color: var(--primary-color)">امیر</span> هستم</h1>
+                <h2 class="hero-subtitle">توسعه‌دهنده بک‌اند و متخصص API</h2>
+                <p class="hero-desc">من در ایجاد سیستم‌های قدرتمند، امن و مقیاس‌پذیر Backend تخصص دارم که عملکرد بی‌نظیری ارائه می‌دهند.</p>
+                <a href="#portfolio" class="btn">مشاهده پروژه‌ها</a>
+                
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="bi bi-github"></i></a>
+                    <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+                    <a href="#" class="social-link"><i class="bi bi-stack-overflow"></i></a>
+                    <a href="#" class="social-link"><i class="bi bi-telegram"></i></a>
+                </div>
+            </div>
+            
+            <div class="hero-image fade-in delay-1">
+                <img src="https://placehold.co/400x400/0f344c/2bd69c?text=Backend+Developer" alt="عکس پروفایل">
+            </div>
+        </div>
+    </section>
+
+    <!-- درباره من -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">درباره من</h2>
+            
+            <div class="about-content">
+                <div class="about-image fade-in">
+                    <img src="https://placehold.co/500x600/0f344c/2bd69c?text=Backend+Specialist" alt="درباره من">
+                </div>
+                
+                <div class="about-text fade-in delay-1">
+                    <h3>متخصص در توسعه سمت سرور و معماری نرم‌افزار</h3>
+                    <p>من یک توسعه‌دهنده بک‌اند با بیش از 6 سال تجربه هستم که در ایجاد سیستم‌های scalable و امن تخصص دارم. من عاشق حل مسائل پیچیده و بهینه‌سازی عملکرد سرور هستم.</p>
+                    
+                    <p>تخصص اصلی من در طراحی و توسعه APIهای RESTful و GraphQL، کار با پایگاه‌های داده رابطه‌ای و غیررابطه‌ای، و پیاده‌سازی سیستم‌های Real-time است.</p>
+                    
+                    <div class="info-list">
+                        <div class="info-item">
+                            <span><strong>نام:</strong> امیر حسینی</span>
+                        </div>
+                        <div class="info-item">
+                            <span><strong>ایمیل:</strong> amir.hosseini@example.com</span>
+                        </div>
+                        <div class="info-item">
+                            <span><strong>سن:</strong> 31 سال</span>
+                        </div>
+                        <div class="info-item">
+                            <span><strong>موقعیت:</strong> تهران، ایران</span>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="btn btn-outline" style="margin-top: 20px">دانلود رزومه</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- مهارت‌ها -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">مهارت‌های فنی</h2>
+            
+            <div class="skills-container">
+                <div class="skill-item fade-in">
+                    <div class="skill-icon">
+                        <i class="bi bi-server"></i>
+                    </div>
+                    <h3>زبان‌های برنامه‌نویسی</h3>
+                    <p>Python, JavaScript (Node.js), Java, PHP, Go</p>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="95%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-item fade-in delay-1">
+                    <div class="skill-icon">
+                        <i class="bi bi-database"></i>
+                    </div>
+                    <h3>پایگاه‌های داده</h3>
+                    <p>MySQL, PostgreSQL, MongoDB, Redis, Elasticsearch</p>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="90%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-item fade-in delay-2">
+                    <div class="skill-icon">
+                        <i class="bi bi-plug"></i>
+                    </div>
+                    <h3>APIها</h3>
+                    <p>RESTful APIs, GraphQL, WebSocket, gRPC</p>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="92%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-item fade-in delay-3">
+                    <div class="skill-icon">
+                        <i class="bi bi-cloud"></i>
+                    </div>
+                    <h3>فناوری‌های ابری</h3>
+                    <p>Docker, Kubernetes, AWS, CI/CD, Microservices</p>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="85%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- تجربه کاری -->
+    <section id="experience" class="experience" style="background: #f9f9f9;">
+        <div class="container">
+            <h2 class="section-title">سوابق کاری</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item left fade-in">
+                    <div class="timeline-content">
+                        <h3>توسعه‌دهنده ارشد بک‌اند</h3>
+                        <h4>شرکت فناوری پردازش</h4>
+                        <span>1400 - تاکنون</span>
+                        <p>رهبری تیم توسعه بک‌اند برای سیستم‌های پردازش تراکنش‌های مالی. طراحی و پیاده‌سازی معماری میکروسرویس‌ها.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right fade-in delay-1">
+                    <div class="timeline-content">
+                        <h3>توسعه‌دهنده بک‌اند</h3>
+                        <h4>استارتاپ آروین</h4>
+                        <span>1398 - 1400</span>
+                        <p>توسعه APIهای RESTful برای پلتفرم تجارت الکترونیک. بهینه‌سازی عملکرد و کاهش زمان پاسخگویی سرور.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item left fade-in delay-2">
+                    <div class="timeline-content">
+                        <h3>توسعه‌دهنده نرم‌افزار</h3>
+                        <h4>شرکت داده‌پردازان</h4>
+                        <span>1396 - 1398</span>
+                        <p>پیاده‌سازی سیستم مدیریت محتوای enterprise. یکپارچه‌سازی سرویس‌های第三方 و توسعه ماژول‌های سفارشی.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- نمونه کارها -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2 class="section-title">پروژه‌های نمونه</h2>
+            
+            <div class="portfolio-filter">
+                <button class="filter-btn active" data-filter="all">همه</button>
+                <button class="filter-btn" data-filter="api">API</button>
+                <button class="filter-btn" data-filter="microservice">میکروسرویس</button>
+                <button class="filter-btn" data-filter="database">پایگاه داده</button>
+            </div>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="api">
+                    <img src="https://placehold.co/400x300/0f344c/2bd69c?text=API+Gateway" alt="پروژه API" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>API Gateway</h3>
+                        <p>یک دروازه API مقیاس‌پذیر با قابلیت احراز هویت، rate limiting و لاگ‌گیری</p>
+                        <a href="#" class="btn btn-outline" style="margin-top: 15px">مشاهده جزئیات</a>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="microservice">
+                    <img src="https://placehold.co/400x300/0f344c/2bd69c?text=Microservices" alt="معماری میکروسرویس" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>سیستم پرداخت</h3>
+                        <p>معماری میکروسرویس برای سیستم پرداخت با قابلیت تراکنش‌های امن و real-time</p>
+                        <a href="#" class="btn btn-outline" style="margin-top: 15px">مشاهده جزئیات</a>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="database">
+                    <img src="https://placehold.co/400x300/0f344c/2bd69c?text=Database+Optimization" alt="بهینه‌سازی پایگاه داده" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>بهینه‌سازی پایگاه داده</h3>
+                        <p>بهینه‌سازی کوئری‌ها و طراحی ایندکس برای بهبود عملکرد سیستم</p>
+                        <a href="#" class="btn btn-outline" style="margin-top: 15px">مشاهده جزئیات</a>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="api">
+                    <img src="https://placehold.co/400x300/0f344c/2bd69c?text=GraphQL+API" alt="GraphQL API" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>GraphQL API</h3>
+                        <p>پیاده‌سازی یک API پیشرفته GraphQL با قابلیت introspection و real-time subscriptions</p>
+                        <a href="#" class="btn btn-outline" style="margin-top: 15px">مشاهده جزئیات</a>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="microservice">
+                    <img src="https://placehold.co/400x300/0f344c/2bd69c?text=Real-time+Chat" alt="چت Real-time" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>سیستم چت Real-time</h3>
+                        <p>پیاده‌سازی سرویس چت بلادرنگ با WebSocket و Redis Pub/Sub</p>
+                        <a href="#" class="btn btn-outline" style="margin-top: 15px">مشاهده جزئیات</a>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="database">
+                    <img src="https://placehold.co/400x300/0f344c/2bd69c?text=Data+Migration" alt="مهاجرت داده" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>مهاجرت داده</h3>
+                        <p>مهاجرت داده‌ها از پایگاه داده رابطه‌ای به NoSQL با حفظ یکپارچگی داده‌ها</p>
+                        <a href="#" class="btn btn-outline" style="margin-top: 15px">مشاهده جزئیات</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- تماس با من -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">تماس با من</h2>
+            
+            <div class="contact-container">
+                <div class="contact-form fade-in">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="نام شما" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="ایمیل شما" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="موضوع">
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="پیام شما" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">ارسال پیام</button>
+                    </form>
+                </div>
+                
+                <div class="contact-info fade-in delay-1">
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="bi bi-geo-alt"></i>
+                        </div>
+                        <div>
+                            <h4>آدرس</h4>
+                            <p>تهران، خیابان آزادی، ایران</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="bi bi-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>ایمیل</h4>
+                            <p>amir.hosseini@example.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="bi bi-phone"></i>
+                        </div>
+                        <div>
+                            <h4>تلفن</h4>
+                            <p>+98 912 345 6789</p>
+                        </div>
+                    </div>
+                    
+                    <div class="map" style="margin-top: 30px;">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.396444472489!2d51.334382575878!3d35.700372472595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f8e0100ec16c73f%3A0x59f60f2f1c3d5b0e!2sTehran%2C%20Azadi%20St%2C%20Iran!5e0!3m2!1sen!2s!4v1684577890120!5m2!1sen!2s" width="100%" height="200" style="border-radius: 10px;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- فوتر -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <a href="#" class="footer-logo">BackendDev</a>
+                    <p>من در ایجاد سیستم‌های قدرتمند، امن و مقیاس‌پذیر Backend تخصص دارم که عملکرد بی‌نظیری ارائه می‌دهند.</p>
+                    
+                    <div class="footer-social">
+                        <a href="#"><i class="bi bi-github"></i></a>
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                        <a href="#"><i class="bi bi-stack-overflow"></i></a>
+                        <a href="#"><i class="bi bi-telegram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>لینک‌های مفید</h4>
+                    <ul>
+                        <li><a href="#home">خانه</a></li>
+                        <li><a href="#about">درباره من</a></li>
+                        <li><a href="#skills">مهارت‌ها</a></li>
+                        <li><a href="#experience">تجربیات</a></li>
+                        <li><a href="#portfolio">پروژه‌ها</a></li>
+                        <li><a href="#contact">تماس با من</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>خدمات من</h4>
+                    <ul>
+                        <li><a href="#">توسعه بک‌اند</a></li>
+                        <li><a href="#">طراحی API</a></li>
+                        <li><a href="#">معماری نرم
