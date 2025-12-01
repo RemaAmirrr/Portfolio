@@ -888,7 +888,8 @@ span {
     }
 }
 
-@media (max-width: 488px) {
+
+@media (max-width: 340px) {
 
     html {
         font-size: 1.8rem;
